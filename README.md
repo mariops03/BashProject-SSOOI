@@ -1,28 +1,37 @@
-# SSOO1-BashProject
-Proyecto BASH 2023 5illo.sh
+# BashProject-SSOOI
 
-                               ┌─────────────────────────────────────────────────┐
-                               │                 PROGRAMADORES                   │
-                               ├─────────────────────────────────────────────────┤
-                               │              Mario Prieta Sánchez               │
-                               │              Daniel Mulas Fajardo               │
-                               └─────────────────────────────────────────────────┘
-              
-                  ┌─────────────────────────────────────────────────────────────────────────────┐
-                  │                        ESTRATEGIA 1  (NIVEL FÁCIL)                          │
-                  ├─────────────────────────────────────────────────────────────────────────────┤
-                  │ La máquina juega primero las cartas de los palos que ya están sobre la mesa,│
-                  │ y si no tiene ninguna carta de esos palos, juega la carta 5                 │
-                  └─────────────────────────────────────────────────────────────────────────────┘
-              
-                  ┌─────────────────────────────────────────────────────────────────────────────┐
-                  │                        ESTRATEGIA 2  (NIVEL DIFÍCIL)                        │
-                  ├─────────────────────────────────────────────────────────────────────────────┤
-                  │ La máquina analiza sus cartas.                                              │
-                  │    - Si tiene la carta 5 de algún palo, y además el 1, el 9 o el 10         │
-                  │      de ese mismo palo, jugará la carta 5.                                  │    
-                  │    - Si tiene la carta 5 de algún palo, y además tiene más número de cartas │
-                  │      de ese palo que del resto, jugará la carta 5.                          │
-                  │    - Si no cumple ninguna de las dos condiciones anteriores,                │
-                  │      no jugará la carta 5 si es posible.                                    │
-                  └─────────────────────────────────────────────────────────────────────────────┘
+Bash implementation of **Cinquillo** (5illo), a Spanish card game where players take turns placing cards adjacent to the 5s on the table. Features two AI difficulty levels with different playing strategies.
+
+Built as a team project for the **Sistemas Operativos I (SSOOI)** course.
+
+## How it works
+
+The game follows standard Cinquillo rules: the player who holds the 5 of coins starts, and players take turns placing cards that are adjacent (in rank) to cards already on the table. If you can't play, you pass. The first player to empty their hand wins.
+
+The AI opponent has two strategies:
+
+- **Easy mode** — Plays cards matching suits already on the table. Falls back to playing a 5 if no match is found.
+- **Hard mode** — Analyzes its hand strategically:
+  - Plays a 5 if it also holds the 1, 9, or 10 of that suit (maximizing future plays)
+  - Plays a 5 of the suit where it has the most cards
+  - Otherwise, avoids playing 5s to keep options open
+
+## Running it
+
+```bash
+chmod +x 5illo.sh
+./5illo.sh
+```
+
+Configuration is loaded from `config.cfg` and game logs are written to `fichero.log`.
+
+## Tech stack
+
+| | |
+|---|---|
+| **Language** | Bash |
+| **Platform** | Linux |
+
+## Context
+
+Built for the **Sistemas Operativos I (SSOOI)** course at Universidad de Salamanca, 2023. The project exercises Bash scripting fundamentals: control flow, string manipulation, file I/O, and game logic.
